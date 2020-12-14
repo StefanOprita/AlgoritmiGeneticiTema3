@@ -1,6 +1,8 @@
 #include <iostream>
 #include "CitesteGraf.h"
-
+#include "RandomFunctions.h"
+#include "Individ.h"
+#include "GeneticAlgorithm.h"
 int main()
 {
 	/*
@@ -27,6 +29,25 @@ int main()
 
 	std::cout << g2->Marimea() << "\n";
 	std::cout << g2->CostulMuchiei(1, 2) << "\n";
+
+
+	Individ test(4);
+	
+	auto v = test.Convert();
+	std::cout << "\n";
+
+	for (auto& e : v)
+	{
+		std::cout << e << " ";
+	}
+
+	std::cout << "\n";
+
+	/*de asemenea, poti face si  test[index]  ca sa accesezi (sau sa modifici) o bucata din el
+	are si functia getSize care returneaza care elemente sunt in permutarea sa speciala 
+	(Adica cat i-ai dat tu, 4, minus 1 ca nu are sens sa tinem minte ultima bucata ca mereu o
+	sa fie 1)
+	*/
 
 	system("Pause");
 }

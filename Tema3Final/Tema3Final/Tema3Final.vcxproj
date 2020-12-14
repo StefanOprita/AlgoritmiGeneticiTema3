@@ -140,15 +140,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CitesteGraf.cpp" />
+    <ClCompile Include="GeneticAlgorithm.cpp" />
     <ClCompile Include="GrafEuclidian.cpp" />
     <ClCompile Include="GrafMatriceAdiacenta.cpp" />
+    <ClCompile Include="Individ.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RandomFunctions.cpp" />
+    <ClCompile Include="SimulatedAnnealing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CitesteGraf.h" />
+    <ClInclude Include="GeneticAlgorithm.h" />
     <ClInclude Include="Graf.h" />
     <ClInclude Include="GrafEuclidian.h" />
     <ClInclude Include="GrafMatriceAdiacenta.h" />
+    <ClInclude Include="Individ.h" />
+    <ClInclude Include="RandomFunctions.h" />
+    <ClInclude Include="SimulatedAnnealing.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
