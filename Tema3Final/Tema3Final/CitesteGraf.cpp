@@ -30,7 +30,7 @@ Graf* CitesteGraf::Internal_CitesteDinFisier(std::string caleSpreFisier)
 	std::getline(input, linie);
 	std::cout << linie << "\n";
 
-	/* Citesc dimensiunea linia cu dimensiunea*/
+	/* Citesc linia cu dimensiunea*/
 	std::getline(input, linie);
 	std::cout << linie << "\n";
 	std::cout.flush();
