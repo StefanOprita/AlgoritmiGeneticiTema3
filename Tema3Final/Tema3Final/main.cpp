@@ -3,7 +3,9 @@
 #include "RandomFunctions.h"
 #include "Individ.h"
 #include "GeneticAlgorithm.h"
-#include "SimulatedAnnealing.h"
+#include <chrono>
+#include <utility>
+#define NOW std::chrono::high_resolution_clock::now();
 int main()
 {
 	/*
@@ -21,63 +23,67 @@ int main()
 	*/
 
 	/*Exemplu cu costul unei muchii fiind distanta in planul euclidian 2D*/
-	Graf* g = CitesteGraf::CitesteDinFisier("./sourcesAssymetricTSP/br17.atsp");
-	std::cout << "Nenea Berlin: " << "\n";
-	std::cout <<"Marimea "<< g->Marimea() << "\n";
-	std::cout <<"Costul muchiei "<< g->CostulMuchiei(1, 50) << "\n";
 
-	std::cout << "Simulated Annealing:  ";
-	std::cout<< SA(g, simpleInitialize, simpleModify, 30);
+	std::vector<std::string> listaDeFacutPesteNoaptePls;
+	listaDeFacutPesteNoaptePls.push_back("rbg403");
+	/*	listaDeFacutPesteNoaptePls.push_back("rbg358");
+		listaDeFacutPesteNoaptePls.push_back("rbg323");*/
+	listaDeFacutPesteNoaptePls.push_back("ft70");
+		//listaDeFacutPesteNoaptePls.push_back("ft53");
+	listaDeFacutPesteNoaptePls.push_back("ftv44");
+		//listaDeFacutPesteNoaptePls.push_back("ftv38");
+	listaDeFacutPesteNoaptePls.push_back("ftv35");
+		//listaDeFacutPesteNoaptePls.push_back("ftv33");
+		//listaDeFacutPesteNoaptePls.push_back("br17");
+	
 
-	/*Graf* g2 = CitesteGraf::CitesteDinFisier("./sourcesAssymetricTSP/br17.atsp");
-
-	std::cout << g2->Marimea() << "\n";
-	std::cout << g2->CostulMuchiei(1, 2) << "\n";
-
-	std::cout << "Individ" << "\n";
-	Individ test(8);
-	std::cout << "test2   ";
-	Individ test2(8);
-	test2 = test;
-
-
-	auto v = test.Convert();
-	std::cout << "\n";
-
-	for (auto& e : v)
+	for (auto& fisier : listaDeFacutPesteNoaptePls)
 	{
-		std::cout <<e << " ";
+		std::string Path = "./sourcesAssymetricTSP/" + fisier + ".atsp";
+		Graf* g = CitesteGraf::CitesteDinFisier(Path);
+
+		std::string output_st = "./" + fisier + "_rezultate.txt";
+		std::ofstream out(output_st);
+		for (int i = 0; i < 30; ++i)
+		{
+			auto t1 = NOW;
+			out << GA(g) << " ";
+			auto t2 = NOW;
+			auto duration = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
+
+			out << double(duration) / 1000000. << "\n";
+
+		}
 	}
 
-	auto v2 = test.Convert();
-	std::cout << "\n"<<"Cele din 2   ";
-
-	for (auto& e : v2)
-	{
-		std::cout << e << " ";
-	}*/
-	
-	/*std::cout << "\n"<<v.size()<<"\n";
-	for (int i = 0; i < v.size()-1; i++)
-		std::cout <<i<<" "<<i+1<<" "<< g->CostulMuchiei(v[i], v[i + 1])<<"\n";*/
-
-	/*std::cout << "\n";
-	MutatieNormala(test, 0.01);
-	MutateFunction(MutatieNormala);
-	 v = test.Convert();
-	std::cout << "\n";
-
-	for (auto& e : v)
-	{
-		std::cout << e << " ";
-	}*/
+    /*Graf* g = CitesteGraf::CitesteDinFisier("./sourcesAssymetricTSP/ftv38.atsp");
 	
 
-	/*de asemenea, poti face si  test[index]  ca sa accesezi (sau sa modifici) o bucata din el
-	are si functia getSize care returneaza care elemente sunt in permutarea sa speciala 
-	(Adica cat i-ai dat tu, 4, minus 1 ca nu are sens sa tinem minte ultima bucata ca mereu o
-	sa fie 1)
-	*/
+	GA(g);
+
+	std::vector<int> p1 = { 5, 1, 7, 8, 4, 9, 6, 2, 3 };
+	std::vector<int> p2 = { 3, 6, 2, 5, 1, 9, 8, 4, 7 };
+
+	Individ P1(p1.size(), false);
+	Individ P2(p2.size(), false);
+
+	P1.ConvertFromNormalPermutation(p1);
+	P2.ConvertFromNormalPermutation(p2);
+
+	std::vector<Individ> aux;
+	HGreX(P1, P2, aux, g);*/
+
+	/*int pm = 0.01;
+	int nr = 0;
+	for (int i = 0; i < 100; ++i)
+	{
+		float r = randomFloat(0, 1);
+		if (r <= pm) nr++;
+	}
+	
+	std::cout << (float)nr / 100;*/
+	
+
 
 	system("Pause");
 }
