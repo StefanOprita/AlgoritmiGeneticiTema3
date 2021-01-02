@@ -1,5 +1,8 @@
 #include "RandomFunctions.h"
 
+static std::random_device rd;
+static std::mt19937 rng{ rd() };
+
 double randomFloat(const double lower, const double upper, IntervalEnd left, IntervalEnd right)
 {
 	if (lower > upper)
@@ -10,7 +13,7 @@ double randomFloat(const double lower, const double upper, IntervalEnd left, Int
 	std::uniform_real_distribution<double> distribution(lower, upper);
 	double  result;
 	do {
-		result = distribution(generator);
+		result = distribution(rng);
 	} while ((result == lower && left == IntervalEnd::Opened) || (result == upper && right == IntervalEnd::Opened));
 	return result;
 }

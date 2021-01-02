@@ -24,13 +24,18 @@ Graf* CitesteGraf::Internal_CitesteDinFisier(std::string caleSpreFisier)
 
 	/*Citim primele 3 linii care sunt inutile*/
 	std::getline(input, linie);
+	std::cout << linie << "\n";
 	std::getline(input, linie);
+	std::cout << linie << "\n";
 	std::getline(input, linie);
+	std::cout << linie << "\n";
 
 	/* Citesc dimensiunea linia cu dimensiunea*/
 	std::getline(input, linie);
+	std::cout << linie << "\n";
 	std::cout.flush();
 	int index = linie.find(" ");
+	std::cout << index << "\n";
 	int dimensiune = std::stoi(linie.substr(index));
 
 	/*Citesc tipul de graf(cum is date costurile muchiilor)*/
@@ -67,7 +72,9 @@ Graf* CitesteGraf::CitesteGrafCuMatrice(std::ifstream& input, int dimensiune)
 	while (std::getline(input, linie))
 	{
 		if (linie == "EOF") break;
-		linie = linie.substr(linie.find_first_not_of(" "));
+		int index = linie.find_first_not_of(" ");
+		if (index == -1) continue;
+		linie = linie.substr(index);
 		std::vector<std::string> cuvinte;
 
 		char* aux = new char[linie.size() + 1];
@@ -84,6 +91,7 @@ Graf* CitesteGraf::CitesteGrafCuMatrice(std::ifstream& input, int dimensiune)
 
 		for (auto& cuv : cuvinte)
 		{
+			//std::cout << cuv << "\n";
 			graf->PuneInMatrice(i, j, std::stod(cuv));
 			j++;
 			if (j > dimensiune)
