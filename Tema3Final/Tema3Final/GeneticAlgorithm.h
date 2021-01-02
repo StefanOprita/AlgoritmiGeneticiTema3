@@ -59,6 +59,8 @@ CrossOverPop(CrossOverPopNormal);
 	Cand vrei sa testezi o noua functie de fitness poti pur si simplu sa schimbi
 	din definitia de mai jos sa nu mai fie FitnessNormal sa fie FitnessulMeu
 */
+
+
 void GA(Graf* g, int nbGenerations = 100, int popSize = 100,
 	double mutateChance = 0.1, double crossingOverP = 0.2,
 	FitnessFunction((*fitness)) = FitnessNormal,
@@ -67,6 +69,7 @@ void GA(Graf* g, int nbGenerations = 100, int popSize = 100,
 	MutateFunction((*mutate)) = MutatieNormala,
 	CrossOverPop((*crossPop)) = CrossOverPopNormal
 );
+
 
 
 

@@ -9,10 +9,10 @@ Individ::Individ(int size)
 {
 	permutare = std::vector<int>(marimeADN);
 	GenerareRandom();
-	for (auto& i : permutare)
+	/*for (auto& i : permutare)
 	{
 		std::cout << i << " ";
-	}
+	}*/
 }
 
 

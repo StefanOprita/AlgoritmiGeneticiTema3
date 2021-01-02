@@ -3,6 +3,7 @@
 #include "RandomFunctions.h"
 #include "Individ.h"
 #include "GeneticAlgorithm.h"
+#include "SimulatedAnnealing.h"
 int main()
 {
 	/*
@@ -20,28 +21,57 @@ int main()
 	*/
 
 	/*Exemplu cu costul unei muchii fiind distanta in planul euclidian 2D*/
-	Graf* g = CitesteGraf::CitesteDinFisier("./sourcesSymmetricTSP/berlin52.tsp");
-	
-	std::cout << g->Marimea() << "\n";
-	std::cout << g->CostulMuchiei(1, 50) << "\n";
+	Graf* g = CitesteGraf::CitesteDinFisier("./sourcesAssymetricTSP/br17.atsp");
+	std::cout << "Nenea Berlin: " << "\n";
+	std::cout <<"Marimea "<< g->Marimea() << "\n";
+	std::cout <<"Costul muchiei "<< g->CostulMuchiei(1, 50) << "\n";
 
-	Graf* g2 = CitesteGraf::CitesteDinFisier("./sourcesAssymetricTSP/br17.atsp");
+	std::cout << "Simulated Annealing:  ";
+	std::cout<< SA(g, simpleInitialize, simpleModify, 30);
+
+	/*Graf* g2 = CitesteGraf::CitesteDinFisier("./sourcesAssymetricTSP/br17.atsp");
 
 	std::cout << g2->Marimea() << "\n";
 	std::cout << g2->CostulMuchiei(1, 2) << "\n";
 
+	std::cout << "Individ" << "\n";
+	Individ test(8);
+	std::cout << "test2   ";
+	Individ test2(8);
+	test2 = test;
 
-	Individ test(4);
-	
+
 	auto v = test.Convert();
 	std::cout << "\n";
 
 	for (auto& e : v)
 	{
-		std::cout << e << " ";
+		std::cout <<e << " ";
 	}
 
+	auto v2 = test.Convert();
+	std::cout << "\n"<<"Cele din 2   ";
+
+	for (auto& e : v2)
+	{
+		std::cout << e << " ";
+	}*/
+	
+	/*std::cout << "\n"<<v.size()<<"\n";
+	for (int i = 0; i < v.size()-1; i++)
+		std::cout <<i<<" "<<i+1<<" "<< g->CostulMuchiei(v[i], v[i + 1])<<"\n";*/
+
+	/*std::cout << "\n";
+	MutatieNormala(test, 0.01);
+	MutateFunction(MutatieNormala);
+	 v = test.Convert();
 	std::cout << "\n";
+
+	for (auto& e : v)
+	{
+		std::cout << e << " ";
+	}*/
+	
 
 	/*de asemenea, poti face si  test[index]  ca sa accesezi (sau sa modifici) o bucata din el
 	are si functia getSize care returneaza care elemente sunt in permutarea sa speciala 

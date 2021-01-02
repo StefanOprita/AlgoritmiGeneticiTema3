@@ -13,7 +13,7 @@ double naturalModify(double Tn, double t, double T0);
 
 
 /*Asemanator ca la GA, am pus asa cu parametrii optionali ca sa ne fie usor de customizat*/
-void SA(Graf* fun,
+float SA(Graf* fun,
 	double(*initializeTemperature)(Graf* fun) = simpleInitialize,
 	double(*modifyTemperature)(double Tn, double t, double T0) = simpleModify,
 	int repetitions = 30);
