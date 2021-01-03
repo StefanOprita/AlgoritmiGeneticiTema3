@@ -26,7 +26,8 @@ int main()
 	/*Exemplu cu costul unei muchii fiind distanta in planul euclidian 2D*/
 
 	std::vector<std::string> listaDeFacutPesteNoaptePls;
-	listaDeFacutPesteNoaptePls.push_back("rbg403");
+	listaDeFacutPesteNoaptePls.push_back("ft53");
+	//listaDeFacutPesteNoaptePls.push_back("rbg403");
 	/*listaDeFacutPesteNoaptePls.push_back("rbg403");
 	listaDeFacutPesteNoaptePls.push_back("rbg358");*/
 	/*listaDeFacutPesteNoaptePls.push_back("rbg323");

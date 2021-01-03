@@ -16,4 +16,4 @@ double naturalModify(double Tn, double t, double T0);
 float SA(Graf* fun,
 	double(*initializeTemperature)(Graf* fun) = simpleInitialize,
 	double(*modifyTemperature)(double Tn, double t, double T0) = simpleModify,
-	int repetitions = 100);
+	int repetitions = 30);
