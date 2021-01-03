@@ -4,7 +4,6 @@
 #include "Individ.h"
 #include "GeneticAlgorithm.h"
 #include "SimulatedAnnealing.h"
-
 #include <chrono>
 #include <utility>
 #define NOW std::chrono::high_resolution_clock::now();
@@ -26,17 +25,18 @@ int main()
 
 	/*Exemplu cu costul unei muchii fiind distanta in planul euclidian 2D*/
 
-	/*std::vector<std::string> listaDeFacutPesteNoaptePls;
+	std::vector<std::string> listaDeFacutPesteNoaptePls;
 	listaDeFacutPesteNoaptePls.push_back("rbg403");
-	//listaDeFacutPesteNoaptePls.push_back("rbg358");
-		//listaDeFacutPesteNoaptePls.push_back("rbg323");
-	listaDeFacutPesteNoaptePls.push_back("ft70");
-		//listaDeFacutPesteNoaptePls.push_back("ft53");
+	/*listaDeFacutPesteNoaptePls.push_back("rbg403");
+	listaDeFacutPesteNoaptePls.push_back("rbg358");*/
+	/*listaDeFacutPesteNoaptePls.push_back("rbg323");
+	listaDeFacutPesteNoaptePls.push_back("ft70");*/
+	/*listaDeFacutPesteNoaptePls.push_back("ft53");
 	listaDeFacutPesteNoaptePls.push_back("ftv44");
-		//listaDeFacutPesteNoaptePls.push_back("ftv38");
-	listaDeFacutPesteNoaptePls.push_back("ftv35");
-		//listaDeFacutPesteNoaptePls.push_back("ftv33");
-		//listaDeFacutPesteNoaptePls.push_back("br17");
+	listaDeFacutPesteNoaptePls.push_back("ftv38");*/
+	//listaDeFacutPesteNoaptePls.push_back("ftv35");
+	//listaDeFacutPesteNoaptePls.push_back("ftv33");
+	//listaDeFacutPesteNoaptePls.push_back("br17");
 	
 
 	for (auto& fisier : listaDeFacutPesteNoaptePls)
@@ -49,7 +49,7 @@ int main()
 		for (int i = 0; i < 30; ++i)
 		{
 			auto t1 = NOW;
-			out << GA(g) << " ";
+			out << SA(g) << " ";
 			auto t2 = NOW;
 			auto duration = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
 
@@ -57,7 +57,6 @@ int main()
 
 		}
 	}
-	*/
 
     /*Graf* g = CitesteGraf::CitesteDinFisier("./sourcesAssymetricTSP/ftv38.atsp");
 	
@@ -86,8 +85,6 @@ int main()
 	
 	std::cout << (float)nr / 100;*/
 	
-	Graf* g = CitesteGraf::CitesteDinFisier("./sourcesAssymetricTSP/ft53.atsp");
-	std::cout << SA(g, simpleInitialize, simpleModify, 30);
 
 
 	system("Pause");

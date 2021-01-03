@@ -20,4 +20,4 @@ void swap_orase(std::vector<int> &vecin, int i, int j);
 float SA(Graf* fun,
 	double(*initializeTemperature)(Graf* fun) = simpleInitialize,
 	double(*modifyTemperature)(double Tn, double t, double T0) = simpleModify,
-	int repetitions = 30);
+	int repetitions = 100);
